@@ -1,0 +1,10 @@
+#include "imports/stdlib.fc";
+
+() load_data () inline {
+
+}
+
+() save_data() impure {
+
+}
+

@@ -32,6 +32,7 @@ describe('Counter Contract Test', () => {
     })
 
     it("increase", async () => {
+        // 在沙盒创建新的钱包，拥有足够的ton coin
         const increaser = await blockchain.treasury("test")
         const counterBefore = await counterContract.getCount()
         console.log('counter before increasing', counterBefore);

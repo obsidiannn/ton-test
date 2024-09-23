@@ -20,7 +20,9 @@
 ### Deploy or run another script
 
 `npx blueprint run` or `yarn blueprint run`
+`npx blueprint run deployCounterContract`
 
 ### Add a new contract
 
 `npx blueprint create ContractName` or `yarn blueprint create ContractName`
+https://docs.ton.org/mandarin/develop/smart-contracts

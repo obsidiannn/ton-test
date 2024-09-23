@@ -1,0 +1,20 @@
+#include "imports/stdlib.fc";
+
+() recv_internal(int my_balance, int msg_value, cell in_msg_full, slice in_msg_body) impure {
+  if(msg_value < 10000000){
+    return ();
+  }
+  slice cs = in_msg_full.begin_parse();
+  int flags = cs~load_uint(4);
+  slice send_address = cs~load_msg_addr();
+  slice reply = "reply";
+
+  cell msg = begin_cell()
+    .store_uint(0x18, 6)
+    .store_slice(send_address)
+    .store_coins(100)
+    .store_uint(0, 1 + 4 + 4 + 64 + 32 + 1 + 1)
+    .store_slice(reply)
+  .end_cell();
+  send_raw_message(msg,3);
+}
